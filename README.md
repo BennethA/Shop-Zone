@@ -15,11 +15,11 @@ Tech Stack
 
 - Frontend: React JS
 - Styling: Tailwind CSS
-- Deployment: Vercel
+- Deployment: Vercel:  https://shop-zone-ruby.vercel.app
 
 Installation
 
-1. Clone the repository: `git clone (link unavailable)
+1. Clone the repository: https://github.com/BennethA/Shop-Zone
 2. Install dependencies: npm install
 3. Start the server: npm start
 
