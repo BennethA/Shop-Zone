@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`border-t-2 py-7 flex flex-wrap items-center sm:gap-0 gap-2 fixed bg-black bottom-0 right-0 left-0 h-[200px px-4 sm:mx-[5vw] md:mx-[7vw] lg:mx-[9vw] justify-between ${
+      className={`border-t-2 py-1 flex flex-wrap items-center sm:gap-0 gap-2 fixed bg-black bottom-0 right-0 left-0 h-[200px mx-4 sm:mx-[5vw] md:mx-[7vw] lg:mx-[9vw] justify-between ${
         changeContrast ? "text-white" : "bg-white"
       }`}
     >
@@ -18,9 +18,7 @@ export default function Footer() {
         </Link>
         <p className="text-sm text-gray-600">
           Lorem ipsum dolor sit amet consectetur adipisicing elit recusandae
-          animi debitis minima tenetur maxime doloribus vitae. Laborum
-          architecto tempora at ex neque commodi? Eaque quam reiciendis illum
-          voluptatem cumque assumenda dignissimos voluptate vitae.
+          animi debitis minima tenetur maxime doloribus vitae.
         </p>
       </div>
       <div className="flex items-center justify-center w-full sm:w-3/4 sm:justify-end flex-wrap gap-1">
