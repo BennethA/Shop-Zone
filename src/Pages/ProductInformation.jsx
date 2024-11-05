@@ -70,7 +70,7 @@ export default function Product() {
             onClick={() => {
               logIn ? handleItem(item) : navigate("/login");
             }}
-            className={`bg-white border-2 text-black rounded-sm font-semibold px-3 py-2 hover:bg-black hover:text-white`}
+            className={`bg-white border-2 text-black rounded-sm font-semibold px-3 py-2 hover:bg-[gray] hover:text-white`}
           >
             Add to cart
           </button>

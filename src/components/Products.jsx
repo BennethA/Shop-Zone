@@ -113,7 +113,7 @@ export default function Products() {
                   onClick={() => {
                     logIn ? handleItem(product) : navigate("/login");
                   }}
-                  className={`bg-white border-2 text-black rounded-sm font-semibold hover:bg-black hover:text-white`}
+                  className={`bg-white border-2 text-black rounded-sm font-semibold hover:bg-[gray] hover:text-white`}
                 >
                   Add to cart
                 </button>
