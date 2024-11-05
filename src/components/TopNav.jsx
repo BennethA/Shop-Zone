@@ -6,7 +6,7 @@ import DataContext from "../Context/DataContext";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaStore, FaUserCheck } from "react-icons/fa6";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { BiMenu, BiMoon, BiSearch, BiSun, BiUser, BiX } from "react-icons/bi";
+import { BiMenu, BiSearch, BiUser, BiX } from "react-icons/bi";
 
 export default function TopNav() {
   const navigate = useNavigate();
@@ -17,13 +17,8 @@ export default function TopNav() {
     setOpenMenu(!openMenu);
   };
 
-  const {
-    logIn,
-    openSearch,
-    setOpenSearch,
-    changeContrast,
-    setChangeContrast,
-  } = useContext(DataContext);
+  const { logIn, openSearch, setOpenSearch } =
+    useContext(DataContext);
 
   const pages = [
     {
@@ -60,9 +55,7 @@ export default function TopNav() {
 
   return (
     <nav
-      className={`flex-wrap gap-2 ${
-        changeContrast ? "bg-black text-white" : "bg-white"
-      } z-[100] sticky right-0 left-0 top-0 flex justify-between py-3 items-center border-b-2`}
+      className={`flex-wrap gap-2 z-[100] sticky right-0 left-0 top-0 flex justify-between py-3 items-center border-b-2 bg-white`}
     >
       <Link to="/" className="font-extrabold text-xl font cursor-pointer">
         SHOP-ZONE
@@ -84,13 +77,10 @@ export default function TopNav() {
         ))}
       </ul>
       <div
-        className={`sm:hidden fixed transition-all duration-500 top-[54px] translate-x-[-100%] left-0 w-[270px] px-[30px] py-[20px] text-[17px] font-semibold overflow-y-auto ${
-          changeContrast ? "bg-black text-white" : "bg-white text-black"
-        } border-r-2 bottom-0 ${
+        className={`sm:hidden fixed transition-all duration-500 top-[54px] translate-x-[-100%] left-0 w-[270px] px-[30px] py-[20px] text-[17px] font-semibold overflow-y-auto bg-white text-black border-r-2 bottom-0 scrollbar scrollbar-thumb-black ${
           openMenu ? "translate-x-[0%]" : ""
-        }  scrollbar ${
-          changeContrast ? "scrollbar-thumb-white" : "scrollbar-thumb-black"
-        }`}
+        }
+        `}
       >
         {pages.map((page) => (
           <NavLink
@@ -115,29 +105,17 @@ export default function TopNav() {
             onClick={() => setOpenSearch(!openSearch)}
           />
         )}
-        <button
-          onClick={() => setChangeContrast(!changeContrast)}
-          className="hover:opacity-80 text-xl"
-        >
-          {changeContrast ? <BiSun /> : <BiMoon />}
-        </button>
         <div
           onClick={() =>
             logIn ? navigate("/userInformation") : navigate("/login")
           }
-          className={`rounded-full cursor-pointer ${
-            changeContrast
-              ? "hover:text-black hover:bg-white"
-              : "hover:text-white hover:bg-black"
-          }`}
+          className={`rounded-full hover:text-white hover:bg-black cursor-pointer`}
         >
           {logIn ? <FaUserCheck /> : <BiUser />}
         </div>
         <div
           onClick={handleOpenMenu}
-          className={`sm:hidden text-2xl cursor-pointer hover:opacity-80 ${
-            changeContrast ? "text-white" : "text-black"
-          } `}
+          className={`sm:hidden text-2xl cursor-pointer hover:opacity-80`}
         >
           {openMenu ? <BiX /> : <BiMenu />}
         </div>

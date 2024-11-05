@@ -3,28 +3,20 @@ import Title from "../components/Title";
 import DataContext from "../Context/DataContext";
 
 export default function ContactUs() {
-  const { changeContrast, socials } = useContext(DataContext);
+  const { socials } = useContext(DataContext);
   
   return (
     <div
-      className={`pt-[55px] pb-5 gap-5 flex flex-col bg-center bg-cover mb-5 ${
-        changeContrast
-          ? "text-white"
-          : "bg-[url(../public/contact.png)]"
-      }`}
+      className={`pt-[55px] pb-5 gap-5 flex flex-col bg-center bg-cover mb-5 bg-[url(../public/contact.png)]`}
     >
       <Title text1="CONTACT" text2="US" />
       <div className="flex flex-wrap justify-between">
         <div
-          className={`flex flex-col justify-center items-center gap-3 w-full sm:w-[45%] p-1 rounded-lg text-lg ${
-            !changeContrast && "text-black"
-          }`}
+          className={`flex flex-col justify-center items-center gap-3 w-full sm:w-[45%] p-1 rounded-lg text-lg`}
         >
           <div>
             <p className="font-bold">Our Store</p>
-            <div
-              className={`${!changeContrast ? "text-black" : "text-gray-300"}`}
-            >
+            <div className={`text-[#4d4d4d]`}>
               <p>2542 William Street</p>
               <p>Pokuasi, Accra, Ghana</p>
             </div>
@@ -32,9 +24,7 @@ export default function ContactUs() {
           <div>
             <p className="font-bold">Reach Us</p>
             <div
-              className={`flex flex-col gap-2 items-start justify-center ${
-                !changeContrast ? "text-black" : "text-gray-300"
-              }`}
+              className={`flex flex-col gap-2 items-start justify-center text-[#4d4d4d]`}
             >
               {socials.map((social) => (
                 <a

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function PlaceOrder() {
   const navigate = useNavigate();
-  const { changeContrast, cart } = useContext(DataContext);
+  const { cart } = useContext(DataContext);
 
   const paymentOptions = [
     {
@@ -44,9 +44,7 @@ export default function PlaceOrder() {
 
   return (
     <div
-      className={`px-4 sm:p-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] gap-2 flex flex-col pb-2 ${
-        changeContrast ? "bg-black text-white" : "bg-white "
-      }`}
+      className={`px-4 sm:p-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] gap-2 flex flex-col pb-2`}
     >
       <Title text1="PLACE" text2="ORDER" />
       <div className="text-xl">Select Payment Option</div>

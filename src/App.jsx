@@ -3,7 +3,6 @@ import Shop from "./Pages/Shop";
 import Cart from "./Pages/Cart";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
-import { useContext } from "react";
 import Orders from "./Pages/Orders";
 import Register from "./Pages/Register";
 import Footer from "./components/Footer";
@@ -12,20 +11,14 @@ import ContactUs from "./Pages/ContactUs";
 import ErrorPage from "./Pages/ErrorPage";
 import PlaceOrder from "./Pages/PlaceOrder";
 import CartLink from "./components/CartLink";
-import DataContext from "./Context/DataContext";
 import Product from "./Pages/ProductInformation";
 import { Route, Routes } from "react-router-dom";
 import ForgotPassword from "./Pages/ForgotPassword";
 import UserInformation from "./Pages/UserInformation";
 export default function App() {
-  const { changeContrast } = useContext(DataContext);
   // localStorage.clear()
   return (
-    <div
-      className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] h-full text-black pb-[250px] ${
-        changeContrast && "bg-black text-white"
-      }`}
-    >
+    <div className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] h-full`}>
       <TopNav />
       <CartLink />
       <Routes>

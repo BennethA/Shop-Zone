@@ -3,15 +3,13 @@ import { FaX } from "react-icons/fa6";
 import DataContext from "../Context/DataContext";
 
 export default function Search() {
-  const { filter, setFilter, openSearch, setOpenSearch, changeContrast } =
+  const { filter, setFilter, openSearch, setOpenSearch } =
     useContext(DataContext);
 
   return (
     openSearch && (
       <form
-        className={`flex items-center justify-center gap-2 my-2  border-y  border-slate-400 ${
-          changeContrast ? "bg-[#2020209d]" : "bg-[#00000013]"
-        } p-3`}
+        className={`flex items-center justify-center gap-2 my-2  border-y  border-slate-400 bg-[#00000013] p-3`}
       >
         <input
           type="search"

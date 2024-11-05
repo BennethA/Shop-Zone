@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 export default function Products() {
-  const { filter, logIn, handleItem, existingCart, changeContrast } =
+  const { filter, logIn, handleItem, existingCart } =
     useContext(DataContext);
 
   const navigate = useNavigate();
@@ -61,9 +61,7 @@ export default function Products() {
     <div>
       <select
         onClick={(e) => setSortType(e.target.value)}
-        className={`rounded p-1 cursor-pointer hover:opacity-80 mt-2 border-2 ${
-          changeContrast && "bg-black"
-        }`}
+        className={`rounded p-1 cursor-pointer hover:opacity-80 mt-2 border-2`}
       >
         <option value="low-high">Sort price by: Low-high</option>
         <option value="high-low">Sort price by: High-low</option>
@@ -89,9 +87,7 @@ export default function Products() {
                   />
                 </div>
                 <div
-                  className={`border-2 px-2 font-bold rounded-[10px] text-center active:text-[#6d6d6d] hover:text-[#6d6d6d] ${
-                    changeContrast ? "text-white" : "text-black"
-                  }`}
+                  className={`border-2 px-2 font-bold rounded-[10px] text-center active:text-[#6d6d6d] hover:text-[#6d6d6d]`}
                 >
                   <p>
                     {product.name.length <= 15
@@ -101,9 +97,7 @@ export default function Products() {
                   </p>
                 </div>
                 <div
-                  className={`font-bold text-center ${
-                    changeContrast ? "text-white" : "text-[gray]"
-                  }`}
+                  className={`font-bold text-center text-[gray]`}
                 >
                   <p>${product.price.toFixed(2)}</p>
                 </div>

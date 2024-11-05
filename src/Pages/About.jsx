@@ -1,17 +1,12 @@
-import { useContext } from "react";
 import Title from "../components/Title";
-import DataContext from "../Context/DataContext";
 
 const About = () => {
-  const { changeContrast } = useContext(DataContext);
 
   return (
     <main className={`pt-[55px] pb-2 gap-1 flex flex-col`}>
       <Title text1="ABOUT" text2="US" />
       <p
-        className={`font-semibold text-gray-800 ${
-          changeContrast && "text-white"
-        }`}
+        className={`font-semibold text-gray-800`}
       >
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
         amet vero laboriosam molestias necessitatibus placeat accusamus quo

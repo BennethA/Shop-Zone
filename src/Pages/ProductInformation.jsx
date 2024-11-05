@@ -1,12 +1,12 @@
-import DataContext from "../Context/DataContext";
 import { useContext } from "react";
-import PRODUCTS from "../Products.json";
-import { useNavigate, useParams } from "react-router-dom";
 import Back from "../components/Back";
+import PRODUCTS from "../Products.json";
 import Title from "../components/Title";
+import { useNavigate, useParams } from "react-router-dom";
+import DataContext from "../Context/DataContext";
 
 export default function Product() {
-  const { handleItem, existingCart, logIn, changeContrast } =
+  const { handleItem, existingCart, logIn } =
     useContext(DataContext);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -18,9 +18,7 @@ export default function Product() {
     <div>
       <Back />
       <main
-        className={`pb-4 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] flex flex-col gap-3 ${
-          changeContrast ? "bg-black text-white" : "bg-white text-black"
-        }`}
+        className={`pb-4 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] flex flex-col gap-3`}
       >
         <Title text1="PRODUCT" text2="DETAILS:" />
         {/* <div className="flex gap-2">

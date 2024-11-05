@@ -4,15 +4,13 @@ import Title from "../components/Title";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function UserInformation() {
-  const { loginDetails, registerDetails, changeContrast, logIn, setLogIn } =
+  const { loginDetails, registerDetails, logIn, setLogIn } =
     useContext(DataContext);
 
   const navigate = useNavigate();
   return (
     <div
-      className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] pb-2 flex flex-col items-center justify-center gap-2 ${
-        changeContrast ? "bg-black text-white" : "bg-white "
-      }`}
+      className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] pb-2 flex flex-col items-center justify-center gap-2`}
     >
       <Title text1="USER" text2="INFORMATION" />
 
@@ -38,7 +36,10 @@ export default function UserInformation() {
           </div>
           <hr className="h-[1px] w-full opacity-60" />
 
-          <Link to="/orders" className="bg-gray-600 rounded-sm hover:opacity-80">
+          <Link
+            to="/orders"
+            className="bg-gray-600 rounded-sm hover:opacity-80"
+          >
             Orders
           </Link>
           <hr className="h-[1px] w-full opacity-60" />

@@ -1,8 +1,4 @@
-import { useContext } from "react";
-import DataContext from "../Context/DataContext";
-
 export default function Home() {
-  const { changeContrast } = useContext(DataContext);
 
   const services = [
     {
@@ -34,9 +30,7 @@ export default function Home() {
       <div className="2xl:w-[60%] xl:w-[70%] lg:w-[80%] md:w-[60%] w-[90%] gap-8 flex flex-col justify-center">
         <div className="w-[100%] sm:w-[80%]">
           <p
-            className={`font-semibold text-4xl text-black leading-[45px] ${
-              changeContrast ? "text-white" : "text-black"
-            }`}
+            className={`font-semibold text-4xl leading-[45px]`}
           >
             DISCOVER IT ALL, FROM CLOTHING TO JEWELRY AND MORE
           </p>
@@ -54,11 +48,7 @@ export default function Home() {
         {services.map((service) => (
           <div key={service.id}>
             <p
-              className={`border-[2px] rounded-md px-1 font-semibold text-center  ${
-                changeContrast
-                  ? " border-[gray] text-white"
-                  : " border-black text-black"
-              }`}
+              className={`border-[2px] rounded-md px-1 font-semibold text-center border-black`}
             >
               {service.name}
             </p>

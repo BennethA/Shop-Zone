@@ -14,7 +14,6 @@ export default function Register() {
     setEmail,
     setErrors,
     setPassword,
-    changeContrast,
     setRegisterDetails,
   } = useContext(DataContext);
 
@@ -121,9 +120,7 @@ export default function Register() {
 
   return (
     <main
-      className={`flex items-center justify-center pt-[55px] mb-2 ${
-        changeContrast ? "bg-black text-white" : "bg-white"
-      }`}
+      className={`flex items-center justify-center pt-[55px] mb-2`}
     >
       <div className="text-center rounded max-w-[400px]">
         <div className="text-lg font-bold mb-2 gap-1 flex flex-col">

@@ -6,7 +6,7 @@ import DataContext from "../Context/DataContext";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Cart() {
-  const { cart, setCart, handleDelete, changeContrast } =
+  const { cart, setCart, handleDelete } =
     useContext(DataContext);
 
   const navigate = useNavigate();
@@ -111,11 +111,7 @@ export default function Cart() {
           {cart.length > 0 && (
             <button
               onClick={() => navigate("/placeOrder")}
-              className={`border-2 px-2 py-2 rounded-sm transition-all duration-200 ${
-                changeContrast
-                  ? "hover:bg-white hover:text-black"
-                  : "hover:bg-black hover:text-white"
-              }`}
+              className={`border-2 px-2 py-2 rounded-sm transition-all duration-200 hover:bg-black hover:text-white`}
             >
               PLACE ORDER
             </button>
