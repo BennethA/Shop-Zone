@@ -5,7 +5,7 @@ import FilterNav from "../components/FilterNav";
 
 export default function Shop() {
   return (
-    <main className={`pt-[55px] pb-2`}>
+    <main className={`pt-[55px] pb-7`}>
       <Title text1="AVAILABLE" text2="PRODUCTS" />
       <Search />
       <FilterNav />

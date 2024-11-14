@@ -49,7 +49,7 @@ export default function Login() {
   };
 
   return (
-    <main className={`flex items-center justify-center pt-[55px] mb-2`}>
+    <main className={`flex items-center justify-center pt-[55px] pb-7`}>
       <div className="text-center max-w-[400px]">
         <div className="text-lg font-bold mb-2 gap-1 flex flex-col">
           <p>Please Login Here!</p>
@@ -62,9 +62,9 @@ export default function Login() {
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col flex-wrap items-center justify-center"
+          className="flex flex-col flex-wrap items-center justify-center gap-5"
         >
-          <div className="flex flex-col gap-2 items-center justify-center">
+          <div className="flex flex-col gap-5 items-center justify-center">
             <input
               required
               id="email"

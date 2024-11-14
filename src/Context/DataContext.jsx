@@ -12,8 +12,11 @@ export function DataProvider({ children }) {
   const [filter, setFilter] = useState("");
   const [logIn, setLogIn] = useState(false);
   const [password, setPassword] = useState("");
+  const [sortType, setSortType] = useState("random");
   const [openSearch, setOpenSearch] = useState(false);
   const [loginDetails, setLoginDetails] = useState({});
+  const [prevPageNumber, setPrevPageNumber] = useState(0);
+  const [nextPageNumber, setNextPageNumber] = useState(15);
   const [openPurchase, setOpenPurchase] = useState(false);
   const [registerDetails, setRegisterDetails] = useState({});
   const [changeContrast, setChangeContrast] = useState(true);
@@ -102,16 +105,10 @@ export function DataProvider({ children }) {
       name: "Pants",
     },
     {
-      name: "Sweaters",
-    },
-    {
       name: "Pajamas",
     },
     {
       name: "Socks",
-    },
-    {
-      name: "Hats",
     },
     {
       name: "Skirts",
@@ -165,6 +162,12 @@ export function DataProvider({ children }) {
         setPassword,
         errors,
         setErrors,
+        sortType,
+        setSortType,
+        prevPageNumber,
+        setPrevPageNumber,
+        nextPageNumber,
+        setNextPageNumber,
       }}
     >
       {children}

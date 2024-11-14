@@ -44,7 +44,7 @@ export default function PlaceOrder() {
 
   return (
     <div
-      className={`px-4 sm:p-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] gap-2 flex flex-col pb-2`}
+      className={`px-4 sm:p-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] gap-2 flex flex-col pb-7`}
     >
       <Title text1="PLACE" text2="ORDER" />
       <div className="text-xl">Select Payment Option</div>
@@ -65,7 +65,8 @@ export default function PlaceOrder() {
       </div>
       <div className="flex gap-3 items-center">
         <div className="font-bold text-2xl">
-          ${cart.reduce(
+          $
+          {cart.reduce(
             (total, product) => total + product.price * product.quantity,
             0
           ) + 10}

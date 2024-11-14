@@ -39,12 +39,12 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className={`flex items-center justify-center pt-[55px] mb-2`}>
+    <div className={`flex items-center justify-center pt-[55px] pb-7`}>
       <form
         onSubmit={handleChangePassword}
-        className="flex flex-col items-center flex-wrap "
+        className="flex flex-col items-center flex-wrap gap-5 "
       >
-        <div className="flex flex-col gap-2 items-center justify-center">
+        <div className="flex flex-col gap-5 items-center justify-center">
           <input
             required
             id="email"

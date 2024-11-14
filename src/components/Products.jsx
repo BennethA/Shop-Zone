@@ -6,14 +6,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 export default function Products() {
-  const { filter, logIn, handleItem, existingCart } =
-    useContext(DataContext);
+  const {
+    filter,
+    logIn,
+    handleItem,
+    existingCart,
+    sortType,
+    setSortType,
+    prevPageNumber,
+    setPrevPageNumber,
+    nextPageNumber,
+    setNextPageNumber,
+  } = useContext(DataContext);
 
   const navigate = useNavigate();
-  const [sortType, setSortType] = useState("");
   const [products, setProducts] = useState(PRODUCTS);
-  let [prevPageNumber, setPrevPageNumber] = useState(0);
-  let [nextPageNumber, setNextPageNumber] = useState(15);
 
   useEffect(() => {
     const filteredProducts = PRODUCTS.filter(
@@ -28,13 +35,16 @@ export default function Products() {
   }, [filter]);
 
   useEffect(() => {
-    const sortedProducts = [...products];
+    let sortedProducts = [...products];
     switch (sortType) {
       case "high-low":
         sortedProducts.sort((a, b) => b.price - a.price);
         break;
       case "low-high":
         sortedProducts.sort((a, b) => a.price - b.price);
+        break;
+      case "random":
+        sortedProducts.sort(() => Math.random() - 0.5);
         break;
       default:
         break;
@@ -61,8 +71,9 @@ export default function Products() {
     <div>
       <select
         onClick={(e) => setSortType(e.target.value)}
-        className={`rounded p-1 cursor-pointer hover:opacity-80 mt-2 border-2`}
+        className={`rounded p-1 cursor-pointer hover:opacity-80 my-7 border-2`}
       >
+        <option value="random">Random</option>
         <option value="low-high">Sort price by: Low-high</option>
         <option value="high-low">Sort price by: High-low</option>
       </select>
@@ -71,23 +82,19 @@ export default function Products() {
           products.slice(prevPageNumber, nextPageNumber).map((product) => (
             <div
               key={product.id}
-              className="sm:w-[200px] w-[150px] relative border-2 px-1 rounded-lg flex flex-col pb-1 hover:bg-[#1a1a1a4d] transition-all duration-300"
+              className="sm:w-[200px] w-[150px] relative border-2 px-1 rounded-lg flex flex-col pb-1 hover:bg-[#a3a3a36e]"
             >
-              <div className={`font-bold flex items-center gap-[2px]`}>
-                <p>{product.rating.toFixed(1)}</p>
-                <FaStar className="text-[gold]" />
-              </div>
               <Link to={`/productInformation/${product.id}`}>
                 <div className="h-[250px] bg-white rounded-lg overflow-hidden flex items-center mb-1 relative">
                   <img
                     loading="lazy"
                     alt={product.name}
                     src={product.image_url}
-                    className="rounded-lg text-center hover:scale-110 transition-all duration-300 mix-blend-multiply"
+                    className="rounded-lg text-center hover:scale-110 transition-all duration-500"
                   />
                 </div>
                 <div
-                  className={`border-2 px-2 font-bold rounded-[10px] text-center active:text-[#6d6d6d] hover:text-[#6d6d6d]`}
+                  className={`border-2 px-2 font-bold rounded-[10px] text-center hover:text-[#383838]`}
                 >
                   <p>
                     {product.name.length <= 15
@@ -97,9 +104,13 @@ export default function Products() {
                   </p>
                 </div>
                 <div
-                  className={`font-bold text-center text-[gray]`}
+                  className={`font-bold text-center text-[#1F1F1F] flex justify-between items-center mx-2`}
                 >
                   <p>${product.price.toFixed(2)}</p>
+                  <div className={`font-bold flex items-center gap-[2px]`}>
+                    <p>{product.rating.toFixed(1)}</p>
+                    <FaStar className="text-[gold]" />
+                  </div>
                 </div>
               </Link>
               {existingCart.some((item) => item.id === product.id) ? (
@@ -126,10 +137,10 @@ export default function Products() {
           </div>
         )}
       </main>
-      <div className="mt-2 flex gap-2 items-center justify-center">
+      <div className="mt-9 flex gap-2 items-center justify-center text-xl">
         {prevPageNumber > 0 && (
           <button
-            className="bg-slate-500 rounded p-1 text-white hover:opacity-80"
+            className="bg-slate-500 rounded p-1 text-white hover:opacity-80 px-5"
             onClick={previousPage}
           >
             Previous
@@ -137,7 +148,7 @@ export default function Products() {
         )}
         {nextPageNumber <= products.length && (
           <button
-            className="bg-slate-500 rounded p-1 text-white hover:opacity-80"
+            className="bg-slate-500 rounded p-1 text-white hover:opacity-80 px-5"
             onClick={nextPage}
           >
             Next

@@ -17,8 +17,7 @@ export default function TopNav() {
     setOpenMenu(!openMenu);
   };
 
-  const { logIn, openSearch, setOpenSearch } =
-    useContext(DataContext);
+  const { logIn, openSearch, setOpenSearch } = useContext(DataContext);
 
   const pages = [
     {
@@ -62,18 +61,19 @@ export default function TopNav() {
       </Link>
       <ul className="hidden sm:flex gap-3 font-semibold">
         {pages.map((page) => (
-          <NavLink
-            key={page.id}
-            to={page.link}
-            className={({ isActive }) =>
-              `flex gap-[5px] items-center cursor-pointer font-bold hover:opacity-80 ${
-                isActive ? "text-[gray] underline" : ""
-              }`
-            }
-          >
-            {page.icon}
-            {page.name}
-          </NavLink>
+          <li key={page.id}>
+            <NavLink
+              to={page.link}
+              className={({ isActive }) =>
+                `flex gap-[5px] items-center cursor-pointer font-bold hover:opacity-80 ${
+                  isActive ? "text-black underline" : "text-[#474747]"
+                }`
+              }
+            >
+              {page.icon}
+              {page.name}
+            </NavLink>
+          </li>
         ))}
       </ul>
       <div
@@ -83,19 +83,20 @@ export default function TopNav() {
         `}
       >
         {pages.map((page) => (
-          <NavLink
-            onClick={handleOpenMenu}
-            to={page.link}
-            key={page.id}
-            className={({ isActive }) =>
-              `mt-6 flex gap-[5px] items-center cursor-pointer font-bold hover:opacity-80 ${
-                isActive ? "text-[gray] underline" : ""
-              }`
-            }
-          >
-            {page.icon}
-            {page.name}
-          </NavLink>
+          <li key={page.id}>
+            <NavLink
+              onClick={handleOpenMenu}
+              to={page.link}
+              className={({ isActive }) =>
+                `mt-6 flex gap-[5px] items-center cursor-pointer font-bold hover:opacity-80 ${
+                  isActive ? "text-black underline" : "text-[#474747]"
+                }`
+              }
+            >
+              {page.icon}
+              {page.name}
+            </NavLink>
+          </li>
         ))}
       </div>
       <div className="flex items-center gap-2">

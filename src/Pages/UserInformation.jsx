@@ -10,27 +10,27 @@ export default function UserInformation() {
   const navigate = useNavigate();
   return (
     <div
-      className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] pb-2 flex flex-col items-center justify-center gap-2`}
+      className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] flex flex-col items-center justify-center gap-2 pb-7`}
     >
       <Title text1="USER" text2="INFORMATION" />
 
       {logIn ? (
         <div className="flex flex-col gap-2">
-          <div>Name: {loginDetails.name || registerDetails.name}</div>
+          <div className="p-2">Name: {loginDetails.name || registerDetails.name}</div>
           <hr className="h-[1px] w-full opacity-60" />
 
-          <div>Email: {loginDetails.email || registerDetails.email}</div>
+          <div className="p-2">Email: {loginDetails.email || registerDetails.email}</div>
           <hr className="h-[1px] w-full opacity-60" />
 
-          <div>
+          <div className="p-2">
             Country: {loginDetails.country || registerDetails.selectedCountry}
           </div>
           <hr className="h-[1px] w-full opacity-60" />
 
-          <div>City: {loginDetails.city || registerDetails.selectedCity}</div>
+          <div className="p-2">City: {loginDetails.city || registerDetails.selectedCity}</div>
           <hr className="h-[1px] w-full opacity-60" />
 
-          <div>
+          <div className="p-2">
             Phone Number:
             {loginDetails.phoneNumber || registerDetails.phoneNumber}
           </div>
@@ -38,7 +38,7 @@ export default function UserInformation() {
 
           <Link
             to="/orders"
-            className="bg-gray-600 rounded-sm hover:opacity-80"
+            className="bg-gray-600 rounded-sm hover:opacity-80 text-white p-2"
           >
             Orders
           </Link>

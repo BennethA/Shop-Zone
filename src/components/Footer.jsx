@@ -16,9 +16,9 @@ export default function Footer() {
           animi debitis minima tenetur maxime doloribus vitae.
         </p>
       </div>
-      <div className="flex items-center justify-center w-full sm:w-3/4 sm:justify-end flex-wrap gap-1">
-        <BiCopyright />
-        Copyright <BiAt /> shop-zone-eta.vercel.app | All rights reserved 2024
+      <div className="flex items-center w-full sm:w-3/4 sm:justify-end flex-wrap">
+        <BiCopyright className="mr-1" />
+        Copyright <BiAt className="ml-1"/> shop-zone-eta.vercel.app | All rights reserved 2024
       </div>
     </footer>
   );

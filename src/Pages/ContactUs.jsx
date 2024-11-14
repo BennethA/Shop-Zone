@@ -7,16 +7,16 @@ export default function ContactUs() {
   
   return (
     <div
-      className={`pt-[55px] pb-5 gap-5 flex flex-col bg-center bg-cover mb-5 bg-[url(../public/contact.png)]`}
+      className={`pt-[55px] pb-7 gap-5 flex flex-col bg-center bg-cover mb-5 bg-[url(../public/contact.png)]`}
     >
       <Title text1="CONTACT" text2="US" />
       <div className="flex flex-wrap justify-between">
         <div
-          className={`flex flex-col justify-center items-center gap-3 w-full sm:w-[45%] p-1 rounded-lg text-lg`}
+          className={`flex flex-col justify-center items-center gap-3 w-full sm:w-[45%] p-1 rounded-lg text-lg bg-white bg-opacity-80`}
         >
           <div>
             <p className="font-bold">Our Store</p>
-            <div className={`text-[#4d4d4d]`}>
+            <div className={`text-[#1d1d1d]`}>
               <p>2542 William Street</p>
               <p>Pokuasi, Accra, Ghana</p>
             </div>
@@ -24,7 +24,7 @@ export default function ContactUs() {
           <div>
             <p className="font-bold">Reach Us</p>
             <div
-              className={`flex flex-col gap-2 items-start justify-center text-[#4d4d4d]`}
+              className={`flex flex-col gap-2 items-start justify-center text-[#1d1d1d]`}
             >
               {socials.map((social) => (
                 <a

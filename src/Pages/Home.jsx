@@ -25,13 +25,11 @@ export default function Home() {
   
   return (
     <main
-      className={`p-3 flex justify-center flex-col gap-9 pt-[55px]`}
+      className={`p-3 flex justify-center flex-col gap-[50px] pt-[55px] pb-7`}
     >
-      <div className="2xl:w-[60%] xl:w-[70%] lg:w-[80%] md:w-[60%] w-[90%] gap-8 flex flex-col justify-center">
+      <div className="2xl:w-[60%] xl:w-[70%] lg:w-[80%] md:w-[60%] w-[90%] gap-[40px] flex flex-col justify-center">
         <div className="w-[100%] sm:w-[80%]">
-          <p
-            className={`font-semibold text-4xl leading-[45px]`}
-          >
+          <p className={`font-semibold text-5xl leading-[45px]`}>
             DISCOVER IT ALL, FROM CLOTHING TO JEWELRY AND MORE
           </p>
         </div>

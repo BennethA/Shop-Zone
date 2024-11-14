@@ -32,11 +32,9 @@ export default function Cart() {
   return (
     <div>
       <Back />
-      <main
-        className={`pt-[55px] pb-2`}
-      >
+      <main className={`pt-[55px] pb-7`}>
         <Title text1="YOUR" text2="CART" />
-        <div className="flex gap-3 my-4 border-t-2 pt-3 overflow-x-auto">
+        <div className="flex gap-3 my-4 border-t-2 pt-3 overflow-x-auto scrollbar scrollbar-thumb-black scrollbar-track-[#00000062]">
           {cart.length > 0 ? (
             cart.map((cart) => (
               <div

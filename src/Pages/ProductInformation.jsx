@@ -18,7 +18,7 @@ export default function Product() {
     <div>
       <Back />
       <main
-        className={`pb-4 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] flex flex-col gap-3`}
+        className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] flex flex-col gap-3 pb-7`}
       >
         <Title text1="PRODUCT" text2="DETAILS:" />
         {/* <div className="flex gap-2">

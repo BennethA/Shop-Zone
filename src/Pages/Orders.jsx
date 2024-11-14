@@ -5,7 +5,7 @@ import DataContext from "../Context/DataContext";
 export default function Orders() {
   const { cart } = useContext(DataContext);
   return (
-    <div className={`px-4 sm:p-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] pb-2`}>
+    <div className={`px-4 sm:p-[5vw] md:px-[7vw] lg:px-[9vw] pt-[55px] pb-7`}>
       <Title text1="YOUR" text2="ORDERS" />
       <div className="flex justify-between">
         <p>Name</p>
