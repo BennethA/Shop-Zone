@@ -83,7 +83,7 @@ export default function TopNav() {
         `}
       >
         {pages.map((page) => (
-          <li key={page.id}>
+          <li key={page.id} className="flex">
             <NavLink
               onClick={handleOpenMenu}
               to={page.link}
