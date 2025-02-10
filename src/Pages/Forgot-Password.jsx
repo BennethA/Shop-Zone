@@ -12,7 +12,7 @@ export default function ForgotPassword() {
 
   const handleChangePassword = (e) => {
     e.preventDefault();
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    // const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{15}$/;
     const registeredUsers = localStorage.getItem("registeredUsers");
 

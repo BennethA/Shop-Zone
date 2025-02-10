@@ -4,7 +4,7 @@ import DataContext from "../Context/DataContext";
 
 export default function ContactUs() {
   const { socials } = useContext(DataContext);
-  
+
   return (
     <div
       className={`pt-[55px] pb-7 gap-5 flex flex-col bg-center bg-cover mb-5 bg-[url(../public/contact.png)]`}
@@ -43,7 +43,7 @@ export default function ContactUs() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d127056.97423159608!2d-0.17694719999997358!3d5.636096000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sgh!4v1713753274853!5m2!1sen!2sgh"
             loading="lazy"
-            className="h-[300px] w-full"
+            className="h-[300px] w-full rounded-lg"
           />
         </div>
       </div>

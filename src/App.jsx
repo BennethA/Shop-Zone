@@ -6,20 +6,20 @@ import Login from "./Pages/Login";
 import Orders from "./Pages/Orders";
 import Register from "./Pages/Register";
 import Footer from "./components/Footer";
-import TopNav from "./components/TopNav";
-import ContactUs from "./Pages/ContactUs";
-import ErrorPage from "./Pages/ErrorPage";
-import PlaceOrder from "./Pages/PlaceOrder";
-import CartLink from "./components/CartLink";
-import Product from "./Pages/ProductInformation";
+import ContactUs from "./Pages/Contact-Us";
+import ErrorPage from "./Pages/Error-Page";
+import PlaceOrder from "./pages/Place-Order";
+import CartLink from "./components/Cart-Link";
+import Product from "./Pages/Product-Information";
+import Navigation from "./components/Navigation";
 import { Route, Routes } from "react-router-dom";
-import ForgotPassword from "./Pages/ForgotPassword";
-import UserInformation from "./Pages/UserInformation";
+import ForgotPassword from "./Pages/Forgot-Password";
+import UserInformation from "./pages/User-Information";
 export default function App() {
   // localStorage.clear()
   return (
     <div className={`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] h-full`}>
-      <TopNav />
+      <Navigation />
       <CartLink />
       <Routes>
         <Route path="/" element={<Home />} />

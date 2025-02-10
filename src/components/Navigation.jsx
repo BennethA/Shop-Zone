@@ -1,3 +1,5 @@
+import TopbarNav from "./Topbar-Nav";
+import SidebarNav from "./Sidebar-Nav";
 import { CgHome } from "react-icons/cg";
 import { PiSignIn } from "react-icons/pi";
 import { LuContact } from "react-icons/lu";
@@ -5,10 +7,10 @@ import { useContext, useState } from "react";
 import DataContext from "../Context/DataContext";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaStore, FaUserCheck } from "react-icons/fa6";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { BiMenu, BiSearch, BiUser, BiX } from "react-icons/bi";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-export default function TopNav() {
+export default function Navigation() {
   const navigate = useNavigate();
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
@@ -61,19 +63,7 @@ export default function TopNav() {
       </Link>
       <ul className="hidden sm:flex gap-3 font-semibold">
         {pages.map((page) => (
-          <li key={page.id}>
-            <NavLink
-              to={page.link}
-              className={({ isActive }) =>
-                `flex gap-[5px] items-center cursor-pointer font-bold hover:opacity-80 ${
-                  isActive ? "text-black underline" : "text-[#474747]"
-                }`
-              }
-            >
-              {page.icon}
-              {page.name}
-            </NavLink>
-          </li>
+          <TopbarNav key={page.id} page={page} />
         ))}
       </ul>
       <div
@@ -83,20 +73,7 @@ export default function TopNav() {
         `}
       >
         {pages.map((page) => (
-          <li key={page.id} className="flex">
-            <NavLink
-              onClick={handleOpenMenu}
-              to={page.link}
-              className={({ isActive }) =>
-                `mt-6 flex gap-[5px] items-center cursor-pointer font-bold hover:opacity-80 ${
-                  isActive ? "text-black underline" : "text-[#474747]"
-                }`
-              }
-            >
-              {page.icon}
-              {page.name}
-            </NavLink>
-          </li>
+          <SidebarNav key={page.id} page={page} handleOpenMenu={handleOpenMenu}/>
         ))}
       </div>
       <div className="flex items-center gap-2">

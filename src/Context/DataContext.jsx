@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import { BiMailSend } from "react-icons/bi";
+
+import { BsTwitterX } from "react-icons/bs";
+import { BiLogoGmail } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa6";
-import { PiTwitterLogo } from "react-icons/pi";
 import { createContext, useEffect, useState } from "react";
 const DataContext = createContext({});
 
@@ -71,13 +72,13 @@ export function DataProvider({ children }) {
     {
       id: 2,
       link: "http://www.twitter.com/dev_roi",
-      icon: <PiTwitterLogo />,
-      name: "Twitter(X)",
+      icon: <BsTwitterX />,
+      name: "Twitter",
     },
     {
       id: 3,
       link: "mailto:addobenneth6@gmail.com",
-      icon: <BiMailSend />,
+      icon: <BiLogoGmail />,
       name: "GMAIL",
     },
   ];

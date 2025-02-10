@@ -1,7 +1,12 @@
-import { useContext, useState } from "react";
-import DataContext from "../Context/DataContext";
 import Title from "../components/Title";
+import { BiMoney } from "react-icons/bi";
+import { BsPaypal } from "react-icons/bs";
+import { SiVodafone } from "react-icons/si";
+import { useContext, useState } from "react";
+import { CgCreditCard } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
+import DataContext from "../Context/DataContext";
+import PaymentOption from "../components/Payment-Option";
 
 export default function PlaceOrder() {
   const navigate = useNavigate();
@@ -12,31 +17,31 @@ export default function PlaceOrder() {
       id: 1,
       name: "MTN Mobile Money",
       type: "mobile_money",
-      logo: "(link unavailable)",
+      logo: "",
     },
     {
       id: 2,
       name: "Telecel Money",
       type: "mobile_money",
-      logo: "(link unavailable)",
+      logo: <SiVodafone />,
     },
     {
       id: 3,
       name: "Visa",
       type: "credit_card",
-      logo: "(link unavailable)",
+      logo: <CgCreditCard />,
     },
     {
       id: 4,
       name: "PayPal",
       type: "online_payment",
-      logo: "(link unavailable)",
+      logo: <BsPaypal />,
     },
     {
       id: 5,
       name: "Cash on Delivery",
       type: "cod",
-      logo: "(link unavailable)",
+      logo: <BiMoney />,
     },
   ];
 
@@ -51,16 +56,12 @@ export default function PlaceOrder() {
       <hr />
       <div className="flex gap-2 flex-wrap">
         {paymentOptions.map((option) => (
-          <button
+          <PaymentOption
             key={option.id}
-            onClick={() => setSelectedPayment(option)}
-            className={`p-2 border-2 flex gap-2 items-center`}
-          >
-            {selectedPayment.name === option.name && (
-              <div className={`w-3 h-3 rounded-full bg-green-700`}></div>
-            )}
-            {option.name}
-          </button>
+            option={option}
+            selectedPayment={selectedPayment}
+            setSelectedPayment={setSelectedPayment}
+          />
         ))}
       </div>
       <div className="flex gap-3 items-center">
@@ -74,9 +75,12 @@ export default function PlaceOrder() {
         {cart.length > 1 ? "Items" : "Item"} ready to purchase
       </div>
       <button
-        className={`bg-white border-2 text-black rounded-sm font-semibold px-3 py-2 hover:bg-black hover:text-white
+        className={`bg-white border-2 text-black rounded-sm font-semibold px-3 py-2 hover:bg-black hover:text-white ${
+          selectedPayment ? "" : "opacity-50 cursor-not-allowed"
+        }
         `}
         onClick={() => navigate("/orders")}
+        disabled={!selectedPayment}
       >
         PURCHASE
       </button>

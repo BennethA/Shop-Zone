@@ -2,8 +2,8 @@ import { useContext } from "react";
 import Back from "../components/Back";
 import PRODUCTS from "../Products.json";
 import Title from "../components/Title";
-import { useNavigate, useParams } from "react-router-dom";
 import DataContext from "../Context/DataContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Product() {
   const { handleItem, existingCart, logIn } =
@@ -41,19 +41,61 @@ export default function Product() {
           <img
             loading="lazy"
             alt={item.name}
-            className="rounded-md"
             src={item.image_url}
+            className="rounded-md"
             // src={changeImage ? changeImage : item.image_url[0]}
           />
         </div>
 
-        <div className="text-center text-3xl font-bold text-gray-500 underline">
+        <div className="text-center text-3xl font-bold text-gray-500 underline font-sans">
           {item.name}
         </div>
 
         {item.description && (
-          <div className="font-semibold leading-none">{item.description}</div>
+          <div className="font-semibold leading-none font-serif">{item.description}</div>
         )}
+
+        <hr />
+
+        <div className="flex gap-3 flex-col flex-wrap text-gray-700">
+          {item.brand && (
+            <div className="font-semibold leading-none">
+              Brand: {item.brand}
+            </div>
+          )}
+
+          {item.color && (
+            <div className="font-semibold leading-none">
+              Color: {item.color}
+            </div>
+          )}
+
+          {item.category && (
+            <div className="font-semibold leading-none">
+              Category: {item.category}
+            </div>
+          )}
+
+          {item.quantity && (
+            <div className="font-semibold leading-none">
+              Quantity: {item.quantity}
+            </div>
+          )}
+
+          {item.rating && (
+            <div className="font-semibold leading-none">
+              Rate: {item.rating}
+            </div>
+          )}
+
+          {item.gender && (
+            <div className="font-semibold leading-none">
+              Gender: {item.gender}
+            </div>
+          )}
+        </div>
+
+        <hr />
 
         <div className="font-bold text-2xl text-gray-500">
           Price: ${item.price.toFixed(2)}

@@ -1,13 +1,10 @@
 import Title from "../components/Title";
 
 const About = () => {
-
   return (
     <main className={`pt-[55px] pb-7 gap-1 flex flex-col`}>
       <Title text1="ABOUT" text2="US" />
-      <p
-        className={`font-semibold text-gray-800 mb-8`}
-      >
+      <p className={`font-semibold text-gray-800 mb-8`}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
         amet vero laboriosam molestias necessitatibus placeat accusamus quo
         maxime magni, inventore repellat beatae nulla labore blanditiis laborum

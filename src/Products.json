@@ -2823,17 +2823,6 @@
     "category": "Gown"
   },
   {
-    "id": 243,
-    "rating": 4.5,
-    "image_url": "https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/l/z/g/16-s-short-sleeve-stitched-gown-badami-ne-style-60-original-imagbg8m9dpz4wtw.jpeg?q=70",
-    "brand": "NE STYLE",
-    "name": "Printed Crepe Stitched Anarkali Gown",
-    "color": "Beige",
-    "quantity": 1,
-    "price": 1599,
-    "category": "Gown"
-  },
-  {
     "id": 245,
     "rating": 4.5,
     "image_url": "https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/n/t/z/17-xl-short-sleeve-stitched-gown-rama-green-ne-style-60-original-imagbg8mwdhswgzh.jpeg?q=70",
@@ -2856,17 +2845,6 @@
     "category": "Gown"
   },
   {
-    "id": 247,
-    "rating": 4.5,
-    "image_url": "https://rukminim1.flixcart.com/image/612/612/xif0q/shopsy-gown/q/b/k/free-half-sleeve-semi-stitched-ss-ng-1-r4mila-original-imaggnskhergruu4.jpeg?q=70",
-    "brand": "Zinariya Fab",
-    "name": "Embroidered Net Semi Stitched Anarkali Gown",
-    "color": "Pink",
-    "quantity": 1,
-    "price": 2099,
-    "category": "Gown"
-  },
-  {
     "id": 248,
     "rating": 4.5,
     "image_url": "https://rukminim1.flixcart.com/image/612/612/xif0q/gown/8/r/g/na-xxl-sleeveless-stitched-grey-gown-m-glfashion-na-original-imagnzkhprbhezpf.jpeg?q=70",
@@ -2886,17 +2864,6 @@
     "color": "Pink",
     "quantity": 1,
     "price": 3099,
-    "category": "Gown"
-  },
-  {
-    "id": 250,
-    "rating": 4.5,
-    "image_url": "https://rukminim1.flixcart.com/image/612/612/xif0q/shopsy-gown/m/3/t/free-half-sleeve-semi-stitched-ss-ng-1-r4mila-original-imaggnssrjhz78eh.jpeg?q=70",
-    "brand": "Zinariya Fab",
-    "name": "Embroidered Net Semi Stitched Anarkali Gown",
-    "color": "Pink",
-    "quantity": 1,
-    "price": 2099,
     "category": "Gown"
   },
   {
@@ -3341,17 +3308,6 @@
     "description": "Embrace the timeless scent of this classic leather cologne for men. It exudes confidence and style. Get it now with a 20% discount.",
     "rating": 4.8,
     "image_url": "data:image/jpeg;base64,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"
-  },
-  {
-    "id": 299,
-    "rating": 4.5,
-    "image_url": "https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/l/z/g/16-s-short-sleeve-stitched-gown-badami-ne-style-60-original-imagbg8m9dpz4wtw.jpeg?q=70",
-    "brand": "NE STYLE",
-    "name": "Printed Crepe Stitched Anarkali Gown",
-    "color": "Beige",
-    "quantity": 1,
-    "price": 1599,
-    "category": "Gown"
   },
   {
     "id": 300,

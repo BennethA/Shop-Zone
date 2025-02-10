@@ -1,7 +1,7 @@
 import Title from "../components/Title";
 import Search from "../components/Search";
 import Products from "../components/Products";
-import FilterNav from "../components/FilterNav";
+import FilterNav from "../components/Filter-Nav";
 
 export default function Shop() {
   return (
@@ -10,6 +10,6 @@ export default function Shop() {
       <Search />
       <FilterNav />
       <Products />
-    </main>
+    </main> 
   );
 }

@@ -10,6 +10,12 @@ export default function FilterNav() {
     setNextPageNumber,
   } = useContext(DataContext);
 
+  const handleFilterChange = (categoryName) => {
+    setPrevPageNumber(0);
+    setNextPageNumber(15);
+    setFilter(categoryName);
+  };
+
   return (
     <div
       className={`flex overflow-x-auto border-2 rounded-t-[20px] scrollbar scrollbar-thumb-black scrollbar-track-[#00000062]`}
@@ -18,11 +24,7 @@ export default function FilterNav() {
         return (
           <button
             key={category.name}
-            onClick={() => {
-              setPrevPageNumber(0);
-              setNextPageNumber(15);
-              setFilter(category.name);
-            }}
+            onClick={() => handleFilterChange(category.name)}
             className={`border-x px-4 py-2 font-extrabold transition-all duration-500 ${
               filter.toLowerCase() === category.name.toLowerCase()
                 ? `bg-black text-white`

@@ -174,11 +174,7 @@ export default function Register() {
               onChange={handleCountryChange}
             >
               {allCountries.map((country) => (
-                <option
-                  required
-                  key={country.name + country.flag}
-                  value={country.name}
-                >
+                <option key={country.name + country.flag} value={country.name}>
                   {country.name}
                 </option>
               ))}

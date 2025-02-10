@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import PRODUCTS from "../Products.json";
 import { FaStar } from "react-icons/fa6";
 import DataContext from "../Context/DataContext";
@@ -20,22 +19,24 @@ export default function Products() {
   } = useContext(DataContext);
 
   const navigate = useNavigate();
-  const [products, setProducts] = useState(PRODUCTS);
+  const products = PRODUCTS;
+  const [sortedProducts, setSortedProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const filteredProducts = PRODUCTS.filter(
-      (product) =>
+    const filteredProducts = products.filter((product) => {
+      return (
         product.category.toLowerCase().includes(filter.toLowerCase()) ||
         product.name.toLowerCase().includes(filter.toLowerCase()) ||
         (product.gender &&
           product.gender.toLowerCase().includes(filter.toLowerCase()))
-    );
-
-    setProducts(filteredProducts);
-  }, [filter]);
+      );
+    });
+    setFilteredProducts(filteredProducts);
+  }, [filter, products]);
 
   useEffect(() => {
-    let sortedProducts = [...products];
+    let sortedProducts = [...filteredProducts];
     switch (sortType) {
       case "high-low":
         sortedProducts.sort((a, b) => b.price - a.price);
@@ -49,19 +50,18 @@ export default function Products() {
       default:
         break;
     }
+    setSortedProducts(sortedProducts);
+  }, [sortType, filteredProducts]);
 
-    setProducts(sortedProducts);
-  }, [sortType]);
-
-  const previousPage = () => {
+  const handlePreviousPage = () => {
     if (prevPageNumber > 0) {
       setPrevPageNumber(prevPageNumber - 15);
       setNextPageNumber(nextPageNumber - 15);
     }
   };
 
-  const nextPage = () => {
-    if (nextPageNumber <= products.length) {
+  const handleNextPage = () => {
+    if (prevPageNumber <= sortedProducts.length) {
       setPrevPageNumber(prevPageNumber + 15);
       setNextPageNumber(nextPageNumber + 15);
     }
@@ -78,59 +78,62 @@ export default function Products() {
         <option value="high-low">Sort price by: High-low</option>
       </select>
       <main className="flex sm:gap-7 gap-3 flex-wrap justify-center pt-2">
-        {products.length > 0 ? (
-          products.slice(prevPageNumber, nextPageNumber).map((product) => (
-            <div
-              key={product.id}
-              className="sm:w-[200px] w-[150px] relative border-2 px-1 rounded-lg flex flex-col pb-1 hover:bg-[#a3a3a36e]"
-            >
-              <Link to={`/productInformation/${product.id}`}>
-                <div className="h-[250px] bg-white rounded-lg overflow-hidden flex items-center mb-1 relative">
-                  <img
-                    loading="lazy"
-                    alt={product.name}
-                    src={product.image_url}
-                    className="rounded-lg text-center hover:scale-110 transition-all duration-500"
-                  />
-                </div>
-                <div
-                  className={`border-2 px-2 font-bold rounded-[10px] text-center hover:text-[#383838]`}
-                >
-                  <p>
-                    {product.name.length <= 15
-                      ? product.name
-                      : product.name.slice(0, 17)}
-                    ...
-                  </p>
-                </div>
-                <div
-                  className={`font-bold text-center text-[#1F1F1F] flex justify-between items-center mx-2`}
-                >
-                  <p>${product.price.toFixed(2)}</p>
-                  <div className={`font-bold flex items-center gap-[2px]`}>
-                    <p>{product.rating.toFixed(1)}</p>
-                    <FaStar className="text-[gold]" />
+        {sortedProducts.length > 0 ? (
+          sortedProducts
+            .slice(prevPageNumber, nextPageNumber)
+            .map((product) => (
+              <div
+                key={product.id}
+                className="sm:w-[200px] w-[150px] relative border-2 px-1 rounded-lg flex flex-col pb-1 hover:bg-[#a3a3a36e]"
+              >
+                <Link to={`/productInformation/${product.id}`}>
+                  <div className="h-[250px] bg-white rounded-lg overflow-hidden flex items-center mb-1 relative">
+                    <img
+                      loading="lazy"
+                      alt={product.name}
+                      src={product.image_url}
+                      className="rounded-lg text-center hover:scale-110 transition-all duration-500"
+                    />
                   </div>
-                </div>
-              </Link>
-              {existingCart.some((item) => item.id === product.id) ? (
-                <button
-                  className={`text-white rounded-sm font-semibold border-2 bg-black`}
-                >
-                  Added
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    logIn ? handleItem(product) : navigate("/login");
-                  }}
-                  className={`bg-white border-2 text-black rounded-sm font-semibold hover:bg-[gray] hover:text-white`}
-                >
-                  Add to cart
-                </button>
-              )}
-            </div>
-          ))
+                  <div
+                    className={`border-2 px-2 font-bold rounded-[10px] text-center hover:text-[#383838]`}
+                  >
+                    <p>
+                      {product.name.length <= 15
+                        ? product.name
+                        : product.name.slice(0, 17)}
+                      ...
+                    </p>
+                  </div>
+                  <div
+                    className={`font-bold text-center text-[#1F1F1F] flex justify-between items-center mx-2`}
+                  >
+                    <p>${product.price.toFixed(2)}</p>
+                    <div className={`font-bold flex items-center gap-[2px]`}>
+                      <p>{product.rating.toFixed(1)}</p>
+                      <FaStar className="text-[gold]" />
+                    </div>
+                  </div>
+                </Link>
+                {existingCart.some((item) => item.id === product.id) ? (
+                  <button
+                    onClick={() => handleItem(product)}
+                    className={`text-white rounded-sm font-semibold border-2 bg-black`}
+                  >
+                    Remove
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      logIn ? handleItem(product) : navigate("/login");
+                    }}
+                    className={`bg-white border-2 text-black rounded-sm font-semibold hover:bg-[gray] hover:text-white`}
+                  >
+                    Add to cart
+                  </button>
+                )}
+              </div>
+            ))
         ) : (
           <div className="font-bold text-center text-[#535353]">
             <p>No Products Available</p>
@@ -141,15 +144,15 @@ export default function Products() {
         {prevPageNumber > 0 && (
           <button
             className="bg-slate-500 rounded p-1 text-white hover:opacity-80 px-5"
-            onClick={previousPage}
+            onClick={() => handlePreviousPage()}
           >
             Previous
           </button>
         )}
-        {nextPageNumber <= products.length && (
+        {nextPageNumber < sortedProducts.length && (
           <button
             className="bg-slate-500 rounded p-1 text-white hover:opacity-80 px-5"
-            onClick={nextPage}
+            onClick={() => handleNextPage()}
           >
             Next
           </button>
