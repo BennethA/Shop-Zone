@@ -6,8 +6,7 @@ import DataContext from "../Context/DataContext";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Product() {
-  const { handleItem, existingCart, logIn } =
-    useContext(DataContext);
+  const { handleItem, existingCart, logIn } = useContext(DataContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const item = PRODUCTS.find((product) => product.id === Number(id));
@@ -37,13 +36,12 @@ export default function Product() {
           ))}
         </div> */}
 
-        <div className="rounded-md overflow-hidden flex items-center justify-center">
+        <div className="rounded-md overflow-hidden flex items-center justify-center relative">
           <img
             loading="lazy"
             alt={item.name}
             src={item.image_url}
             className="rounded-md"
-            // src={changeImage ? changeImage : item.image_url[0]}
           />
         </div>
 
@@ -52,7 +50,9 @@ export default function Product() {
         </div>
 
         {item.description && (
-          <div className="font-semibold leading-none font-serif">{item.description}</div>
+          <div className="font-semibold leading-none font-serif">
+            {item.description}
+          </div>
         )}
 
         <hr />
@@ -103,9 +103,12 @@ export default function Product() {
 
         {existingCart.some((existingItem) => existingItem.id === item.id) ? (
           <button
+            onClick={() => {
+              logIn ? handleItem(item) : navigate("/login");
+            }}
             className={`text-white rounded-sm font-semibold border-2 px-3 py-2 bg-black`}
           >
-            Added
+            Remove
           </button>
         ) : (
           <button

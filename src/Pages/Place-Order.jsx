@@ -10,7 +10,7 @@ import PaymentOption from "../components/Payment-Option";
 
 export default function PlaceOrder() {
   const navigate = useNavigate();
-  const { cart } = useContext(DataContext);
+  const { logIn, cart } = useContext(DataContext);
 
   const paymentOptions = [
     {
@@ -79,7 +79,9 @@ export default function PlaceOrder() {
           selectedPayment ? "" : "opacity-50 cursor-not-allowed"
         }
         `}
-        onClick={() => navigate("/orders")}
+        onClick={() => {
+          logIn ? navigate("/orders") : navigate("/login");
+        }}
         disabled={!selectedPayment}
       >
         PURCHASE

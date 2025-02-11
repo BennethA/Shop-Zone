@@ -6,7 +6,7 @@ import CartItem from "../components/Cart-Item";
 import DataContext from "../Context/DataContext";
 
 export default function Cart() {
-  const { cart, setCart, handleDelete } = useContext(DataContext);
+  const { logIn, cart, setCart, handleDelete } = useContext(DataContext);
 
   const navigate = useNavigate();
 
@@ -71,7 +71,9 @@ export default function Cart() {
           </div>
           {cart.length > 0 && (
             <button
-              onClick={() => navigate("/placeOrder")}
+              onClick={() => {
+                logIn ? navigate("/placeOrder") : navigate("/login");
+              }}
               className={`border-2 px-2 py-2 rounded-sm transition-all duration-200 hover:bg-black hover:text-white`}
             >
               PLACE ORDER
