@@ -6,7 +6,7 @@ export default function Footer() {
     <footer
       className={`border-t-2 py-1 flex flex-wrap items-center h-[150px] justify-between`}
     >
-      <div className="w-full sm:w-1/4">
+      <div className="w-full sm:w-1/4 flex flex-col item-center">
         <Link to="/" className="font-extrabold text-xl font cursor-pointer">
           SHOP-ZONE
         </Link>
